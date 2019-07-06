@@ -1,6 +1,7 @@
 import Vue from "vue";
 
 import Vuex from "vuex";
+//import { stat } from "fs";
 Vue.use(Vuex);
 export const store = new Vuex.Store({
     state: {
@@ -11,7 +12,8 @@ export const store = new Vuex.Store({
         skills: [],
         auth_user: {},
         pending: [],
-        suggestions: []
+        suggestions: [],
+        groups: []
     },
     getters: {
         all_nots(state) {
@@ -38,6 +40,9 @@ export const store = new Vuex.Store({
         },
         get_all_suggestions(state) {
             return state.suggestions;
+        },
+        get_all_groups(state) {
+            return state.groups;
         }
     },
     mutations: {
@@ -134,6 +139,9 @@ export const store = new Vuex.Store({
         },
         add_suggestion(state, suggestion) {
             state.suggestions.push(suggestion);
+        },
+        add_group(state, group) {
+            state.groups.unshift(group);
         }
     }
 });

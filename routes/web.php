@@ -109,6 +109,13 @@ Route::middleware(['auth'])->group(function () {
             Route::get('/get_friends_suggestion', 'ConnectionsController@getFriendSuggestions');
 
         });
+        Route::group(['namespace' => 'Group'], function () {
+
+            Route::resource('groups','GroupsController');
+            Route::get('all-groups', 'GroupsController@allGroups');
+            Route::get('/group/{id}','GroupsController@groupPage');
+
+        });
 
     });
 

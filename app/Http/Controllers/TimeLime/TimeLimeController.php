@@ -15,6 +15,7 @@ use App\Post;
 use App\Interest;
 use App\Friendship;
 use App\ViewedProfile;
+use App\PeopleWhoViewedProfile;
 
 class TimeLimeController extends Controller
 {
@@ -24,13 +25,10 @@ class TimeLimeController extends Controller
         $overview = Overview::where('user_id', $user->id)->first();
         if (auth()->id()!=$user->id) {
             $this->saveProfile($user->username);
-           
         }
     // dd($this->ViewedFriends());
+        $countView = PeopleWhoViewedProfile::where('username',$user->username)->count();
         $viewedProfiles = $this->ViewedFriends();
-         
-        
-        
        
         $experience = Experience::where('user_id', $user->id)->get();
         $skill = Skill::where('user_id', $user->id)->get();
@@ -45,7 +43,7 @@ class TimeLimeController extends Controller
             return view('timeline.index', compact('user','connectionCount','postCount','viewedProfiles'));
         }
 
-         return view('timeline.profile', compact('user','connectionCount1','viewedProfiles','postCount1','overview','experience','skill','location','education','interest'));
+         return view('timeline.profile', compact('user','connectionCount1','countView','viewedProfiles','postCount1','overview','experience','skill','location','education','interest'));
         
 
     }
@@ -112,6 +110,13 @@ class TimeLimeController extends Controller
 
     }
 
+    private function countViewProfile($id)
+    {
+        $count = PeopleWhoViewedProfile::where('viewed_profile_id', $id)->count();
+
+        return $count;
+    }
+
     private function ViewedFriends()
     {
       // $user = array();
@@ -124,6 +129,8 @@ class TimeLimeController extends Controller
         foreach ($viewedProfiles as  $value) {
             $id = $value->user->id;
             $friends = $this->countConnections(auth()->id());
+
+            $count = $this->countViewProfile($id);
             //dd($friends);
             
             
@@ -132,16 +139,16 @@ class TimeLimeController extends Controller
                      array_push($profiles, $this->getUser($id));
                     
                  }
-            
-           
-           
-       
         }
        
 
         
 
         return $profiles;
+
+             
+               
+       
 
     }
 
@@ -371,7 +378,8 @@ class TimeLimeController extends Controller
          }  else {
 
               return $view->peopleWhoViewedProfile()->create([
-                'viewed_by' => auth()->id()
+                'viewed_by' => auth()->id(),
+                'username' => $username
               ]);
              
          }

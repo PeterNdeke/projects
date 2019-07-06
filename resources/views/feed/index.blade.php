@@ -158,7 +158,7 @@
                                     
                                    
                                    
-                                    <div class="posty">
+                                    {{-- <div class="posty">
                                         <div class="post-bar no-margin">
                                             <div class="post_topbar">
                                                 <div class="usy-dt">
@@ -218,7 +218,7 @@
                                                 </div>
                                             </div><!--post-comment end-->
                                         </div><!--comment-section end-->
-                                    </div><!--posty end-->
+                                    </div><!--posty end--> --}}
 
 
 
@@ -298,11 +298,11 @@
                                 <!--footer start-->
                                 <div class="tags-sec full-width">
                                     <ul>
-                                        <li><a href="about.html" title="About" target="_blank">About</a></li>
-                                        <li><a href="contact.html" title="Contact" target="_blank">Contact</a></li>
-                                        <li><a href="terms.html" title="Privacy and Terms" target="_blank">Privacy and Terms</a></li>
-                                        <li><a href="faqs.html" title="Help Center" target="_blank">Help Center</a></li>
-                                        <li><a href="blog.html" title="Blog" target="_blank">Blog</a></li>
+                                    <li><a href="{{url('about')}}" title="About" target="_blank">About</a></li>
+                                    <li><a href="{{url('contact')}}" title="Contact" target="_blank">Contact</a></li>
+                                    <li><a href="{{url('terms')}}" title="Privacy and Terms" target="_blank">Privacy and Terms</a></li>
+                                    <li><a href="{{url('faqs')}}" title="Help Center" target="_blank">Help Center</a></li>
+                                    <li><a href="{{url('blog')}}" title="Blog" target="_blank">Blog</a></li>
                                     </ul>
                                     <div class="cp-sec">
                                         <p><img src="images/copy-icon2.png" alt=""> 2019 VYBZZ Incorporated. All Rights Reserved </p>

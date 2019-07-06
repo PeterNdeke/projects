@@ -497,7 +497,7 @@
                                     <img src="{{$item->avatar}}" alt="">
                                             <div class="sgt-text">
                                             <h4>{{$item->name}}</h4>
-                                            <span>{{$item->job_role}}</span>
+                                            <span>{{$item->jobtitle}}</span>
                                             </div>
                                             <span>
                                             <a href="/profile/{{$item->username}}"><i class="la la-eye" title="View Profile"></i></a>

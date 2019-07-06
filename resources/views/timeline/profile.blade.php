@@ -31,7 +31,7 @@
                                         </li>
                                         <li class="u-status">
                                             <span>View</span>
-                                            <b>{{$postCount1}}</b>
+                                            <b>{{$countView}}</b>
                                         </li>
                                     </ul>
                                 </div><!--user_pro_status end-->
@@ -208,9 +208,14 @@
                                         <img src="{{$item->avatar}}" alt="">
                                                 <div class="sgt-text">
                                                 <h4>{{$item->name}}</h4>
-                                                <span>{{$item->job_role}}</span>
+                                                <span>{{$item->jobtitle}}</span>
                                                 </div>
-                                                <span><i class="la la-eye" title="View Profile"></i></span>
+                                                <span>
+                                                <a href="/profile/{{$item->username}}">
+                                                    <i class="la la-eye" title="View Profile">
+
+                                                    </i></a>
+                                                </span>
                                             </div>
                                         @endforeach  
                                   

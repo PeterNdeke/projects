@@ -114,6 +114,10 @@ Vue.component(
     "suggestion-component",
     require("./components/feed/Suggestion.vue").default
 );
+Vue.component(
+    "groups-component",
+    require("./components/GroupsComponent.vue").default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -139,4 +139,14 @@ class User extends Authenticatable implements MustVerifyEmail, HasMedia, JWTSubj
         return $this->hasMany(Skill::class);
     }
 
+    public function groups()
+    {
+        return $this->hasMany(Group::class);
+    }
+
+    public function group_members()
+    {
+        return $this->hasMany(GroupMember::class);
+    }
+
 }

@@ -22,6 +22,8 @@
 <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('css/responsive.css')}}">
 <link rel="stylesheet" href="{{asset('css/plyr.css')}}" />
+<link rel="stylesheet" type="text/css" href="{{asset('css/flatpickr.min.css')}}">
+
 <!-- Preload -->
         <link
             rel="preload"
@@ -89,7 +91,7 @@
 								</a>
 							</li>
 							<li>
-								<a href="groups.html" title="">
+							<a href="{{url('groups')}}" title="">
 									<span><i class="pe pe-7s-users"></i></span>
 									Groups
 								</a>
@@ -225,6 +227,8 @@
 <script type="text/javascript" src="{{asset('js/script.js')}}"></script>
 <script type="text/javascript" src="{{asset('js/infinite-scroll.pkgd.js')}}"></script>
 <script src="{{asset('js/plyr.js')}}"></script>
+
+
 
 <script>
     //const player = new Plyr('#player');
